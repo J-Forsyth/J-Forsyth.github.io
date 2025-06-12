@@ -1,0 +1,225 @@
+body {
+  background: #efefef url(../img/bg.png) repeat top left;
+  font-family: "Roboto Mono", Menlo, Monaco, monospace;
+  margin: 0px 0px 0px 0px;
+  padding: 0px 0px 0px 20px;
+  font-size: 18px;
+  line-height: 1.5;
+  color: #444;
+}
+
+header,
+section,
+article {
+  display: block;
+}
+
+header {
+  margin: 40px auto 30px auto;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+section {
+  background-color: white;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -o-border-radius: 10px;
+  -ms-border-radius: 10px;
+  border-radius: 10px;
+  box-shadow: 0 1px 3px #cccccc;
+  padding: 20px 20px 5px 20px;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* a:hover {
+  text-decoration: underline;
+} */
+
+a,
+h2,
+h3 {
+  color: #110b5e;
+}
+
+.show {
+  cursor: pointer;
+}
+
+.hide {
+  display: none;
+}
+
+h1,
+h2,
+h3 {
+  font-family: "Roboto Mono", Menlo, Monaco, monospace;
+  font-weight: bold;
+  text-shadow: 0px 2px 0px #eee;
+  margin: 0;
+  color: #444;
+}
+
+h1 {
+  font-size: 2.3em;
+  line-height: 1;
+}
+
+h2 {
+  font-size: 1.8em;
+  margin-bottom: 10px;
+  margin-left: 20px;
+}
+
+h3 {
+  font-size: 1.3em;
+}
+
+p {
+  margin-top: 0px;
+}
+
+code {
+  background-color: #fff;
+  padding: 0 10px;
+  font-family: Monaco, Menlo, monospace;
+  font-size: 0.9em;
+}
+
+.big {
+  font-size: 1.3em;
+}
+
+.container {
+  width: 750px;
+  margin: 40px auto 0 auto;
+}
+
+#container {
+  width: 750px;
+  margin: 40px auto 0 auto;
+}
+
+#container1-wrapper {
+  display: flex; /* Flexbox layout to align elements horizontally */
+  justify-content: space-between; /* Space between the two elements */
+  align-items: center; /* Vertically center both elements */
+  width: 100%; /* Full width of the parent */
+  max-width: 750px; /* Set the maximum width of the container */
+  margin: 0 auto auto auto; /* Center the wrapper horizontally on the page */
+}
+
+#container1 {
+  width: 65%; /* Set the width of the text area */
+  padding-right: 10px; /*Optional: Add space between text and image*/
+}
+
+#work {
+  width: 750px;
+}
+
+#profile-image {
+  padding: 10px;
+  /* border-radius: 10px; */
+  /* box-shadow: 0 1px 3px #cccccc; */
+  width: 30%; /* Set the width of the image area */
+  display: flex;
+  justify-content: center; /* Horizontally center the image in its container */
+  align-items: center; /* Vertically center both elements */
+}
+
+#profile-image img {
+  max-width: 100%; /* Ensure the image fits within the bounds */
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 10px; /* Rounds the corners */
+  box-shadow: 0 1px 3px #cccccc;
+}
+
+#links {
+  font-family: "Roboto Mono", Menlo, Monaco, monospace;
+  font-weight: bold;
+  font-size: 0.9em;
+  margin: 30px;
+  display: flex;
+  justify-content: space-evenly; /* space-between */
+}
+
+/* Classes */
+.section h3 {
+  font-size: 1.05em;
+  margin-bottom: 0.5em;
+}
+.section {
+  margin-bottom: 30px; /* or your preferred value */
+}
+
+@media all and (max-width: 670px) {
+  h1 {
+    font-size: 1.5em;
+  }
+  body {
+    font-size: 1em;
+  }
+  #container {
+    width: auto;
+    margin: 20px 20px 0 0;
+  }
+  h2 {
+    font-size: 1.5em;
+  }
+  #links {
+    flex-direction: column;
+  }
+  #links,
+  #projects h3 {
+    font-size: 1.3em;
+  }
+  #links span {
+    text-indent: -1000px;
+    display: block;
+    clear: right;
+    height: 10px;
+  }
+}
+/*
+@media (prefers-color-scheme: dark) {
+  body {
+    background: #1c1c1c;
+    color: #efefef;
+  }
+
+  section {
+    background: #2d2d2d;
+    box-shadow: 0 1px 2px #666;
+  }
+
+  a,
+  h2,
+  h3 {
+    color: rgba(133, 116, 167, 1);  /* #2fc38a
+  }
+
+  h1,
+  h2,
+  h3 {
+    text-shadow: none;
+    color: #efefef;
+  }
+} */
+
+.text-small {
+  font-size: 15px;
+}
+
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #e5e5e5;
+  margin: 1em 0;
+  padding: 0;
+}

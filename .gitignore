@@ -1,0 +1,28 @@
+# Node modules
+node_modules/
+
+# Mac system files
+.DS_Store
+
+# Logs
+logs/
+*.log
+
+# Build output
+dist/
+build/
+
+# VS Code settings
+.vscode/
+
+# Environment files
+.env
+.env.*
+
+# Dependency directories
+bower_components/
+jspm_packages/
+
+# Misc
+*.swp
+*.swo
