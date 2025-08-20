@@ -29,7 +29,7 @@ section {
   -ms-border-radius: 10px;
   border-radius: 10px;
   box-shadow: 0 1px 3px #cccccc;
-  padding: 20px 20px 5px 20px;
+  padding: 20px;
 }
 
 a {
@@ -83,6 +83,11 @@ p {
   margin-top: 0px;
 }
 
+img {
+  max-width: 100%;
+  height: auto;
+}
+
 code {
   background-color: #fff;
   padding: 0 10px;
@@ -95,12 +100,16 @@ code {
 }
 
 .container {
-  width: 750px;
+  max-width: 750px;
+  width: 100%;
+  padding: 0 20px;
   margin: 40px auto 0 auto;
 }
 
 #container {
-  width: 750px;
+  max-width: 750px;
+  width: 100%;
+  padding: 0 20px;
   margin: 40px auto 0 auto;
 }
 
@@ -111,6 +120,8 @@ code {
   width: 100%; /* Full width of the parent */
   max-width: 750px; /* Set the maximum width of the container */
   margin: 0 auto auto auto; /* Center the wrapper horizontally on the page */
+  gap: 16px;
+  flex-wrap: nowrap;
 }
 
 #container1 {
@@ -163,6 +174,7 @@ code {
   }
   body {
     font-size: 1em;
+    padding: 0 12px;
   }
   #container {
     width: auto;
@@ -185,6 +197,44 @@ code {
     height: 10px;
   }
 }
+
+@media (max-width: 768px) {
+  #container1-wrapper {
+    display: flex;
+    flex-direction: column-reverse; /* Image above intro on mobile */
+    align-items: stretch;
+    gap: 12px;
+  }
+
+  #container1,
+  #profile-image {
+    width: 100%;
+  }
+
+  #profile-image {
+    margin-top: 0;
+    text-align: left;
+  }
+
+  #profile-image img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  h1 {
+    font-size: 1.6em;
+    line-height: 1.15;
+  }
+
+  h2 {
+    font-size: 1.3em;
+  }
+
+  section {
+    padding: 16px;
+  }
+}
+
 /*
 @media (prefers-color-scheme: dark) {
   body {
@@ -222,4 +272,9 @@ hr {
   border-top: 1px solid #e5e5e5;
   margin: 1em 0;
   padding: 0;
+}
+
+/* Prevent horizontal scroll on small screens due to wide elements */
+html, body {
+  overflow-x: hidden;
 }
