@@ -23,6 +23,7 @@ header {
 
 section {
   background-color: white;
+  /* transition: color 0.2s ease; */
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
   -o-border-radius: 10px;
@@ -32,17 +33,26 @@ section {
   padding: 20px;
 }
 
-a {
-  text-decoration: none;
+a section {
+  transition: background-color 200ms ease;
 }
 
-/* a:hover {
-  text-decoration: underline;
-} */
+a section:hover {
+  background-color: #f9f9f7; /* light grey/tan when hovered */
+}
 
-a,
+.media-card a {
+  color: inherit !important;
+}
+
+a {
+  text-decoration: none;
+  color: inherit; /* don’t force blue; inherit from parent */
+}
+
 h2,
-h3 {
+h3,
+.icon {
   color: #110b5e;
 }
 
@@ -61,6 +71,9 @@ h3 {
   font-weight: bold;
   text-shadow: 0px 2px 0px #eee;
   margin: 0;
+}
+
+h1 {
   color: #444;
 }
 
@@ -130,7 +143,8 @@ code {
 }
 
 #work {
-  width: 750px;
+  max-width: 750px;
+  width: 100%;
 }
 
 #profile-image {
@@ -235,32 +249,6 @@ code {
   }
 }
 
-/*
-@media (prefers-color-scheme: dark) {
-  body {
-    background: #1c1c1c;
-    color: #efefef;
-  }
-
-  section {
-    background: #2d2d2d;
-    box-shadow: 0 1px 2px #666;
-  }
-
-  a,
-  h2,
-  h3 {
-    color: rgba(133, 116, 167, 1);  /* #2fc38a
-  }
-
-  h1,
-  h2,
-  h3 {
-    text-shadow: none;
-    color: #efefef;
-  }
-} */
-
 .text-small {
   font-size: 15px;
 }
@@ -275,6 +263,80 @@ hr {
 }
 
 /* Prevent horizontal scroll on small screens due to wide elements */
-html, body {
+html,
+body {
   overflow-x: hidden;
+}
+
+/* Media card layout */
+.media-card {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: 15px;
+  align-items: center;
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 12px;
+  padding: 20px;
+  overflow: hidden; /* prevent scaled media from overflowing */
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  transition: background-color 200ms ease, transform 200ms ease-out,
+    box-shadow 200ms ease-out, border-color 200ms ease-out;
+  margin-bottom: 30px; /* or your preferred value */
+}
+
+/* Optional visual feedback when actively playing in view */
+.media-card.io-active {
+  /* visual hint while active; keep subtle */
+  border-color: rgba(0, 0, 0, 0.12);
+}
+
+/* Make the media itself behave nicely */
+.media-card video,
+.media-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 12px;
+  background: #f0ece6; /* placeholder bg while loading */
+}
+
+#video-demo video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 2rem auto;
+  border-radius: 8px; /* optional */
+}
+/* Video should be responsive */
+#demoVideo {
+  width: 100%;
+  height: auto;
+  display: block;
+  transform-origin: center center;
+  will-change: transform;
+  transition: transform 200ms ease-out;
+  border: 1px solid #ccc;
+}
+
+/* Nice on phones */
+@media (max-width: 768px) {
+  #video-demo {
+    padding: 0 1rem;
+  }
+}
+
+/* Responsive: stack columns on smaller screens */
+@media (max-width: 900px) {
+  .media-card {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Respect reduced motion globally for this component if you like */
+@media (prefers-reduced-motion: reduce) {
+  #demoVideo,
+  .media-card {
+    transition: none !important;
+  }
 }
