@@ -50,6 +50,7 @@ a {
   color: inherit; /* don’t force blue; inherit from parent */
 }
 
+h1,
 h2,
 h3,
 .icon {
@@ -74,7 +75,8 @@ h3 {
 }
 
 h1 {
-  color: #444;
+  /* color: #444; */
+  color: #353535;
 }
 
 h1 {
@@ -158,7 +160,7 @@ code {
 }
 
 #profile-image img {
-  max-width: 100%; /* Ensure the image fits within the bounds */
+  width: 100%; /* Fill container; attribute width is just a safe fallback before CSS loads */
   height: auto; /* Maintain aspect ratio */
   border-radius: 10px; /* Rounds the corners */
   box-shadow: 0 1px 3px #cccccc;
@@ -171,6 +173,26 @@ code {
   margin: 30px;
   display: flex;
   justify-content: space-evenly; /* space-between */
+}
+
+#links .icon {
+  transition: color 200ms ease;
+}
+
+#links .icon[href*="github.com"] {
+  color: #000000;
+}
+
+#links .icon[href*="linkedin.com"] {
+  color: #0a66c2;
+}
+
+#links .icon[href^="mailto:"] {
+  color: #c2281a;
+}
+
+#links .icon[href$=".pdf"] {
+  color: #b30b00;
 }
 
 /* Classes */
@@ -326,6 +348,50 @@ body {
   }
 }
 
+/* Simple two-image slideshow for media cards (global) */
+.slideshow {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  aspect-ratio: var(--slide-aspect, 1024/621);
+  /* background-color: #f0ece6; letterbox bars color */
+}
+
+.slideshow .slide-track {
+  display: flex;
+  height: 100%; /* fill slideshow height defined by aspect-ratio */
+  will-change: transform;
+  animation: slide-x 8s ease-in-out infinite;
+  /* background-color: #f0ece6; letterbox bars color */
+  /* background: #f0ece6;  /* letterbox bars color */
+
+}
+.media-card .slideshow .slide-track > img {
+  flex: 0 0 100%;
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: contain; /* letterbox, no crop */
+  object-position: center center;
+  background: #fff; /* show bars inside the image box
+  /* background: hotpink */
+
+}
+
+@keyframes slide-x {
+  0%,
+  45% {
+    transform: translateX(0%);
+  }
+  50%,
+  95% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
 /* Responsive: stack columns on smaller screens */
 @media (max-width: 900px) {
   .media-card {
@@ -338,5 +404,8 @@ body {
   #demoVideo,
   .media-card {
     transition: none !important;
+  }
+  .slideshow .slide-track {
+    animation: none !important;
   }
 }
