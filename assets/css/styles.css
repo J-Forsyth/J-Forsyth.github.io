@@ -8,6 +8,12 @@ body {
   color: #444;
 }
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 header,
 section,
 article {
@@ -75,23 +81,19 @@ h3 {
 }
 
 h1 {
-  /* color: #444; */
   color: #353535;
-}
-
-h1 {
-  font-size: 2.3em;
-  line-height: 1;
+  font-size: clamp(1.75rem, 3.5vw + 1rem, 2.8rem);
+  line-height: 1.1;
 }
 
 h2 {
-  font-size: 1.8em;
+  font-size: clamp(1.4rem, 2.5vw + 1rem, 2.2rem);
   margin-bottom: 10px;
   margin-left: 20px;
 }
 
 h3 {
-  font-size: 1.3em;
+  font-size: clamp(1.2rem, 1.3vw + 1rem, 1.6rem);
 }
 
 p {
@@ -169,14 +171,27 @@ code {
 #links {
   font-family: "Roboto Mono", Menlo, Monaco, monospace;
   font-weight: bold;
-  font-size: 0.9em;
   margin: 30px;
   display: flex;
-  justify-content: space-evenly; /* space-between */
+  justify-content: center;
+}
+
+#links h1 {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  font-size: clamp(1.4rem, 1.6vw + 1rem, 1.9rem);
 }
 
 #links .icon {
   transition: color 200ms ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: clamp(1.5rem, 1.8vw + 1rem, 2.1rem);
 }
 
 #links .icon[href*="github.com"] {
@@ -188,7 +203,7 @@ code {
 }
 
 #links .icon[href^="mailto:"] {
-  color: #c2281a;
+  color: #dcad14;
 }
 
 #links .icon[href$=".pdf"] {
@@ -205,9 +220,6 @@ code {
 }
 
 @media all and (max-width: 670px) {
-  h1 {
-    font-size: 1.5em;
-  }
   body {
     font-size: 1em;
     padding: 0 12px;
@@ -217,10 +229,13 @@ code {
     margin: 20px 20px 0 0;
   }
   h2 {
-    font-size: 1.5em;
+    margin-left: 0;
   }
   #links {
-    flex-direction: column;
+    margin: 20px 0;
+  }
+  #links h1 {
+    gap: 12px;
   }
   #links,
   #projects h3 {
@@ -250,20 +265,13 @@ code {
   #profile-image {
     margin-top: 0;
     text-align: left;
+    display: flex;
+    justify-content: center;
   }
 
   #profile-image img {
-    max-width: 100%;
+    max-width: min(280px, 55vw);
     height: auto;
-  }
-
-  h1 {
-    font-size: 1.6em;
-    line-height: 1.15;
-  }
-
-  h2 {
-    font-size: 1.3em;
   }
 
   section {
